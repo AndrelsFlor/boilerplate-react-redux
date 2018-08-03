@@ -6,10 +6,10 @@ import {
 
 class TodoList extends Component {
 
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
 
-    }
+    // }
 
     state = {
         newTodoText: ''

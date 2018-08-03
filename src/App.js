@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import ReduxThunk from 'redux-thunk';
-import reducers from './reducers';
-
-import TodoList from './TodoList'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import Error from './components/Error';
+import Navigation from './components/Navigation';
 
 class App extends Component {
   render() {
     return (
-      <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
-
-        <TodoList/>
-
-      </Provider>
+      <BrowserRouter>
+        <div>
+        <Navigation />
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route component={Error} exact/>
+        </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
